@@ -1,0 +1,91 @@
+{
+  "name": "package-swift-lsp",
+  "displayName": "Package.swift LSP",
+  "description": "Language Server Protocol (LSP) implementation for Swift Package Manager's Package.swift manifest files",
+  "version": "1.0.0",
+  "publisher": "kattouf",
+  "license": "MIT",
+  "engines": {
+    "vscode": "^1.80.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/kattouf/package-swift-lsp-vscode"
+  },
+  "categories": [
+    "Programming Languages",
+    "Language Servers"
+  ],
+  "keywords": [
+    "swift",
+    "package",
+    "spm",
+    "lsp",
+    "language server"
+  ],
+  "activationEvents": [
+    "onLanguage:swift"
+  ],
+  "main": "./out/extension.js",
+  "contributes": {
+    "languages": [
+      {
+        "id": "swift",
+        "extensions": [
+          ".swift"
+        ],
+        "aliases": [
+          "Swift"
+        ],
+        "filenames": [
+          "Package.swift"
+        ]
+      }
+    ],
+    "configuration": {
+      "type": "object",
+      "title": "Package.swift LSP",
+      "properties": {
+        "package-swift-lsp.enable": {
+          "type": "boolean",
+          "default": true,
+          "description": "Enable/disable Package.swift LSP"
+        },
+        "package-swift-lsp.path": {
+          "type": "string",
+          "default": "",
+          "description": "Path to the package-swift-lsp executable (leave empty to use automatic installation)"
+        },
+        "package-swift-lsp.trace.server": {
+          "type": "string",
+          "enum": [
+            "off",
+            "messages",
+            "verbose"
+          ],
+          "default": "off",
+          "description": "Traces the communication between VSCode and the Package.swift language server"
+        }
+      }
+    }
+  },
+  "scripts": {
+    "vscode:prepublish": "npm run compile",
+    "compile": "tsc -p ./",
+    "watch": "tsc -watch -p ./",
+    "lint": "eslint src --ext ts",
+    "package": "vsce package"
+  },
+  "dependencies": {
+    "vscode-languageclient": "^9.0.1"
+  },
+  "devDependencies": {
+    "@types/node": "^18.16.0",
+    "@types/vscode": "^1.80.0",
+    "@typescript-eslint/eslint-plugin": "^6.9.1",
+    "@typescript-eslint/parser": "^6.9.1",
+    "eslint": "^8.52.0",
+    "typescript": "^5.2.2",
+    "vsce": "^2.15.0"
+  }
+}
