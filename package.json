@@ -24,10 +24,18 @@
     "language server"
   ],
   "activationEvents": [
-    "onLanguage:swift"
+    "workspaceContains:**/Package.swift",
+    "workspaceContains:**/Package@swift-*.swift"
   ],
   "main": "./out/extension.js",
   "contributes": {
+    "configurationDefaults": {
+      "[swift]": {
+        "editor.quickSuggestions": {
+          "strings": true
+        }
+      }
+    },
     "languages": [
       {
         "id": "swift",
@@ -37,9 +45,7 @@
         "aliases": [
           "Swift"
         ],
-        "filenames": [
-          "Package.swift"
-        ]
+        "filenames": []
       }
     ],
     "configuration": {
@@ -55,16 +61,6 @@
           "type": "string",
           "default": "",
           "description": "Path to the package-swift-lsp executable (leave empty to use automatic installation)"
-        },
-        "package-swift-lsp.trace.server": {
-          "type": "string",
-          "enum": [
-            "off",
-            "messages",
-            "verbose"
-          ],
-          "default": "off",
-          "description": "Traces the communication between VSCode and the Package.swift language server"
         }
       }
     }

@@ -2,11 +2,28 @@
 
 A Visual Studio Code extension that provides language server protocol (LSP) support for Swift Package Manager's Package.swift manifest files.
 
+Powered by the [Package.swift LSP](https://github.com/kattouf/package-swift-lsp) server.
+
+![demo](https://github.com/user-attachments/assets/4caa7126-a2d7-45dd-b663-2d3f31817f74)
+
 ## Features
 
-- Code completion for Package.swift manifest files
-- Hover information for SPM declarations and syntax elements
-- Powered by the [Package.swift LSP](https://github.com/kattouf/package-swift-lsp) server
+- Smart code completion for Package.swift manifest files:
+  - In `.package(...)` function:
+    - `url:` argument with GitHub repository suggestions
+    - `from:` and `exact:` arguments with version suggestions
+    - `branch:` argument with available branch names
+  - In `.product(...)` function:
+    - `name:` argument with available product suggestions from dependencies
+    - `package:` argument with package name suggestions
+
+  > **Note:** After editing package dependencies (`.package(...)`), save the file for changes to be reflected in target completions.
+
+  > **Warning:** This extension activates autocompletion inside string literals for all Swift files in the workspace, not just Package.swift files.
+
+- Contextual hover information:
+  - Package details including location and state when hovering over package names
+  - Available products in the package
 
 ## Requirements
 
@@ -31,7 +48,6 @@ This extension contributes the following settings:
 
 * `package-swift-lsp.enable`: Enable/disable the Package.swift LSP extension
 * `package-swift-lsp.path`: Optional path to a custom package-swift-lsp executable
-* `package-swift-lsp.trace.server`: Trace communication between VS Code and the language server
 
 ## How it Works
 
@@ -40,7 +56,9 @@ On first activation, the extension will:
 1. Check if a custom path to the language server is configured
 2. If not, look for the language server in PATH
 3. If not found, download the latest release from GitHub
-4. Start the language server for Package.swift files
+4. Start the language server for Package.swift files and versioned manifest files (Package@swift-X.Y.Z.swift)
+
+The extension will only activate for files that exactly match the pattern `Package.swift` or `Package@swift-X.Y.Z.swift` where X, Y, and Z are version numbers.
 
 ## License
 
