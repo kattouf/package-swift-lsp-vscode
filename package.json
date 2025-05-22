@@ -13,8 +13,7 @@
     "url": "https://github.com/kattouf/package-swift-lsp-vscode"
   },
   "categories": [
-    "Programming Languages",
-    "Language Servers"
+    "Programming Languages"
   ],
   "keywords": [
     "swift",
