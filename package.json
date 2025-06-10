@@ -2,7 +2,7 @@
   "name": "package-swift-lsp",
   "displayName": "Package.swift LSP",
   "description": "Language Server Protocol (LSP) implementation for Swift Package Manager's Package.swift manifest files",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "publisher": "kattouf",
   "license": "MIT",
   "engines": {
