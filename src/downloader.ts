@@ -33,7 +33,6 @@ export async function downloadLanguageServer(
   }
 
   // Get latest release from GitHub
-  window.showInformationMessage("Downloading Package.swift LSP...");
   state.outputChannel?.appendLine(
     "Downloading Package.swift LSP from GitHub...",
   );
