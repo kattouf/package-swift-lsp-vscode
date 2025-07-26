@@ -32,7 +32,7 @@ Powered by the [Package.swift LSP](https://github.com/kattouf/package-swift-lsp)
 
 ## Installation
 
-You can install this extension directly from the Visual Studio Code Marketplace or by building it from source.
+You can install this extension from the Visual Studio Code Marketplace or directly via VSCode with [this link](vscode:extension/kattouf.package-swift-lsp)
 
 ### Building from Source
 
