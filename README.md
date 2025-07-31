@@ -37,8 +37,10 @@ Powered by the [Package.swift LSP](https://github.com/kattouf/package-swift-lsp)
 **Option 1: Terminal command (macOS only)**
 ```bash
 open vscode:extension/kattouf.package-swift-lsp
-# For Cursor users:
-open vscode:extension/kattouf.package-swift-lsp
+```
+For Cursor users:
+```bash
+open cursor:extension/kattouf.package-swift-lsp
 ```
 
 **Option 2: From Marketplace**
