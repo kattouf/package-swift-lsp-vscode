@@ -32,7 +32,23 @@ Powered by the [Package.swift LSP](https://github.com/kattouf/package-swift-lsp)
 
 ## Installation
 
-You can install this extension from the Visual Studio Code Marketplace or directly via VSCode with [this link](vscode:extension/kattouf.package-swift-lsp)
+### Quick Install Options
+
+**Option 1: Terminal command (macOS only)**
+```bash
+open vscode:extension/kattouf.package-swift-lsp
+# For Cursor users:
+open vscode:extension/kattouf.package-swift-lsp
+```
+
+**Option 2: From Marketplace**
+- Visit the [Visual Studio Code Marketplace](https://marketplace.visualstudio.com/items?itemName=kattouf.package-swift-lsp)
+
+**Option 3: From VS Code Extensions**
+1. Open VS Code
+2. Go to Extensions tab (Ctrl+Shift+X / Cmd+Shift+X)  
+3. Search for "Package.swift LSP"
+4. Click Install
 
 ### Building from Source
 
