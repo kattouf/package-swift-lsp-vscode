@@ -59,8 +59,19 @@ export async function downloadLanguageServer(
     }
 
     // Find the right asset for the current platform
-    const arch = os.arch() === "arm64" ? "arm64" : "x86_64";
-    const assetName = `${EXECUTABLE_NAME}-${version.replace("v", "")}-${arch}-apple-macosx.zip`;
+    const nodeArch = os.arch();
+    const nodePlatform = os.platform();
+
+    let triple: string;
+    if (nodePlatform === "darwin") {
+      triple = nodeArch === "arm64" ? "arm64-apple-macosx" : "x86_64-apple-macosx";
+    } else if (nodePlatform === "linux") {
+      triple = nodeArch === "arm64" ? "aarch64-unknown-linux-gnu" : "x86_64-unknown-linux-gnu";
+    } else {
+      throw new Error(`Unsupported platform: ${nodePlatform}`);
+    }
+
+    const assetName = `${EXECUTABLE_NAME}-${version.replace("v", "")}-${triple}.zip`;
 
     const asset = latestReleaseInfo.assets.find(
       (asset: GitHubAsset) => asset.name === assetName,

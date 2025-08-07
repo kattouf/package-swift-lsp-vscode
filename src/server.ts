@@ -20,9 +20,9 @@ export async function startLanguageServer(
 ): Promise<LanguageClient | undefined> {
   try {
     // Check if we're on a supported platform
-    if (os.platform() !== "darwin") {
+    if (os.platform() !== "darwin" && os.platform() !== "linux") {
       window.showErrorMessage(
-        "Package.swift LSP is currently only supported on macOS",
+        "Package.swift LSP is currently only supported on macOS and Linux",
       );
       state.outputChannel?.appendLine("Unsupported platform: " + os.platform());
       return undefined;

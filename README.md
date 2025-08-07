@@ -32,7 +32,7 @@ Language server for Package.swift files that provides:
 
 ## Requirements
 
-- macOS (currently only supported on macOS platforms)
+- macOS or Linux
 - x86_64 or arm64 architecture
 
 ## Installation
