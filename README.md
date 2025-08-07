@@ -8,6 +8,8 @@ Powered by the [Package.swift LSP](https://github.com/kattouf/package-swift-lsp)
 
 ## Features
 
+Language server for Package.swift files that provides:
+
 - Smart code completion for Package.swift manifest files:
   - In `.package(...)` function:
     - `url:` argument with GitHub repository suggestions
@@ -16,10 +18,13 @@ Powered by the [Package.swift LSP](https://github.com/kattouf/package-swift-lsp)
   - In `.product(...)` function:
     - `name:` argument with available product suggestions from dependencies
     - `package:` argument with package name suggestions
-
-  > **Note:** After editing package dependencies (`.package(...)`), save the file for changes to be reflected in target completions.
-
-  > **Warning:** This extension activates autocompletion inside string literals for all Swift files in the workspace, not just Package.swift files.
+  - In `.target(...)` function:
+    - `name:` argument with local target name suggestions from your package
+  - In target dependencies string literals:
+    - Product name completion that automatically expands to `.product(name: "ProductName", package: "PackageName")` format
+    - Local target name completion for referencing targets within your package to `.target(name: "LocalTarget")` format
+> [!NOTE]
+> After editing package dependencies (`.package(...)`), save the file for changes to be reflected in target completions.
 
 - Contextual hover information:
   - Package details including location and state when hovering over package names
