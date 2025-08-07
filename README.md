@@ -23,12 +23,15 @@ Language server for Package.swift files that provides:
   - In target dependencies string literals:
     - Product name completion that automatically expands to `.product(name: "ProductName", package: "PackageName")` format
     - Local target name completion for referencing targets within your package to `.target(name: "LocalTarget")` format
-> [!NOTE]
-> After editing package dependencies (`.package(...)`), save the file for changes to be reflected in target completions.
 
 - Contextual hover information:
   - Package details including location and state when hovering over package names
   - Available products in the package
+
+> **Note:** After editing package dependencies (`.package(...)`), save the file for changes to be reflected in target completions.
+
+> **Warning:** This extension activates autocompletion inside string literals for all Swift files in the workspace, not just Package.swift files.
+
 
 ## Requirements
 
@@ -42,7 +45,9 @@ Language server for Package.swift files that provides:
 **Option 1: Terminal command (macOS only)**
 ```bash
 open vscode:extension/kattouf.package-swift-lsp
-# For Cursor users:
+```
+For Cursor users:
+```bash
 open vscode:extension/kattouf.package-swift-lsp
 ```
 
